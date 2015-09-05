@@ -1,17 +1,17 @@
-int cima_apertado = 0;
-int direita_apertado = 0;
-int baixo_apertado = 0;
-int esquerda_apertado = 0;
+bool cima_apertado = false;
+bool direita_apertado = false;
+bool baixo_apertado = false;
+bool esquerda_apertado = false;
 
-int a_apertado = 0;
-int s_apertado = 0;
-int d_apertado = 0;
-int f_apertado = 0;
+bool a_apertado = false;
+bool s_apertado = false;
+bool d_apertado = false;
+bool f_apertado = false;
 
-int z_apertado = 0;
-int x_apertado = 0;
-int c_apertado = 0;
-int v_apertado = 0;
+bool z_apertado = false;
+bool x_apertado = false;
+bool c_apertado = false;
+bool v_apertado = false;
 
 int pino_da_tecla_cima = 13; // Fio laranja
 int pino_da_tecla_direita = 12; // Fio verde
@@ -76,23 +76,21 @@ void loop() {
   analisar_contato(&c_apertado, pino_da_tecla_c, "3", "-3");
   analisar_contato(&v_apertado, pino_da_tecla_v, "2", "-2");
 
-  if (teclasParaEnviar != NULL && teclasParaEnviar[0] != 0) {
-    Serial.println(teclasParaEnviar);
-  }  
-  
-  teclasParaEnviar[0] = 0;
-
   delay(10);
 }
 
-void analisar_contato(int *estado_do_comando, int pino_da_tecla, char* comandoKeyDown, char* comandoKeyUp) {
-  if (*estado_do_comando == 0 && digitalRead(pino_da_tecla) == 0) {
+void analisar_contato(bool *estado_do_comando, int pino_da_tecla, char* comando_key_down, char* comando_key_up) {
+  if (!*estado_do_comando && digitalRead(pino_da_tecla) == 0) {
     *estado_do_comando = 1;
-    strcat(teclasParaEnviar, comandoKeyDown);
+    enviar_comando(comando_key_down);
   }
 
-  if (*estado_do_comando == 1 && digitalRead(pino_da_tecla) == 1) {
+  if (*estado_do_comando && digitalRead(pino_da_tecla) == 1) {
     *estado_do_comando = 0;
-    strcat(teclasParaEnviar, comandoKeyUp);
+    enviar_comando(comando_key_up);
   }
+}
+
+void enviar_comando(char* comando) {
+	Serial.println(comando);	
 }
