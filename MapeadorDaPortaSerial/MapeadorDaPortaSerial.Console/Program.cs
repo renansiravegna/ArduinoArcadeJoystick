@@ -20,17 +20,14 @@ namespace MapeadorDaPortaSerial.Console
                 {"d", VirtualKeyCode.RIGHT},
                 {"b", VirtualKeyCode.DOWN},
                 {"e", VirtualKeyCode.LEFT},
-                {"a", VirtualKeyCode.VK_A},
-                {"s", VirtualKeyCode.VK_S},
-                {"r", VirtualKeyCode.VK_D},
-                {"f", VirtualKeyCode.VK_F},
-                {"z", VirtualKeyCode.VK_Z},
-                {"x", VirtualKeyCode.VK_X},
-                {"u", VirtualKeyCode.VK_C},
-                {"v", VirtualKeyCode.VK_V},
-                {"1", VirtualKeyCode.RETURN},
-                {"2", VirtualKeyCode.SPACE},
-                {"3", VirtualKeyCode.ESCAPE}
+                {"9", VirtualKeyCode.VK_A},
+                {"8", VirtualKeyCode.VK_S},
+                {"7", VirtualKeyCode.VK_D},
+                {"6", VirtualKeyCode.VK_F},
+                {"5", VirtualKeyCode.VK_Z},
+                {"4", VirtualKeyCode.VK_X},
+                {"3", VirtualKeyCode.VK_C},
+                {"2", VirtualKeyCode.VK_V}
             };
 
             _serialPort = new SerialPort("COM4", 9600, Parity.None, 8, StopBits.One)
@@ -57,7 +54,7 @@ namespace MapeadorDaPortaSerial.Console
                 System.Console.WriteLine(comando);
                 var codigoDaTecla = _mapaDeComandos[comando.Key];
 
-                if (comando.Key.StartsWith("_"))
+                if (comando.Key.StartsWith("-"))
                     _inputSimulator.Keyboard.KeyUp(codigoDaTecla);
                 else
                     _inputSimulator.Keyboard.KeyDown(codigoDaTecla);

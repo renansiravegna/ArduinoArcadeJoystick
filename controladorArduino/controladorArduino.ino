@@ -67,14 +67,14 @@ void loop() {
   analisar_contato(&direita_apertado, pino_da_tecla_direita, "d", "-d");
   analisar_contato(&baixo_apertado, pino_da_tecla_baixo, "b", "-b");
   analisar_contato(&esquerda_apertado, pino_da_tecla_esquerda, "e", "-e");
-  analisar_contato(&a_apertado, pino_da_tecla_a, "1", "-1");
-  analisar_contato(&s_apertado, pino_da_tecla_s, "2", "-2");
-  analisar_contato(&d_apertado, pino_da_tecla_d, "3", "-3");
-  analisar_contato(&f_apertado, pino_da_tecla_f, "4", "-4");
+  analisar_contato(&a_apertado, pino_da_tecla_a, "9", "-9");
+  analisar_contato(&s_apertado, pino_da_tecla_s, "8", "-8");
+  analisar_contato(&d_apertado, pino_da_tecla_d, "7", "-7");
+  analisar_contato(&f_apertado, pino_da_tecla_f, "6", "-6");
   analisar_contato(&z_apertado, pino_da_tecla_z, "5", "-5");
-  analisar_contato(&x_apertado, pino_da_tecla_x, "6", "-6");
-  analisar_contato(&c_apertado, pino_da_tecla_c, "7", "-7");
-  analisar_contato(&v_apertado, pino_da_tecla_v, "8", "-8");
+  analisar_contato(&x_apertado, pino_da_tecla_x, "4", "-4");
+  analisar_contato(&c_apertado, pino_da_tecla_c, "3", "-3");
+  analisar_contato(&v_apertado, pino_da_tecla_v, "2", "-2");
 
   if (teclasParaEnviar != NULL && teclasParaEnviar[0] != 0) {
     Serial.println(teclasParaEnviar);
