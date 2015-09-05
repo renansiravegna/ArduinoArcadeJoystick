@@ -28,8 +28,6 @@ int pino_da_tecla_x = 4;
 int pino_da_tecla_c = 3;
 int pino_da_tecla_v = 2;
 
-char teclasParaEnviar[10];
-
 void setup() {
   configurar_pino(pino_da_tecla_cima);
   configurar_pino(pino_da_tecla_direita);
