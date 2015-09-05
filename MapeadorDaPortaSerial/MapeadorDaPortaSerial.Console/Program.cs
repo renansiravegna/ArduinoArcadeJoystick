@@ -16,26 +16,21 @@ namespace MapeadorDaPortaSerial.Console
         {
             _mapaDeComandos = new Dictionary<string, VirtualKeyCode>
             {
-                {"c_", VirtualKeyCode.UP},
-                {"_c", VirtualKeyCode.UP},
-
-                {"d_", VirtualKeyCode.RIGHT},
-                {"_d", VirtualKeyCode.RIGHT},
-
-                {"b_", VirtualKeyCode.DOWN},
-                {"_b", VirtualKeyCode.DOWN},
-
-                {"e_", VirtualKeyCode.LEFT},
-                {"_e", VirtualKeyCode.LEFT},
-
-                {"a_", VirtualKeyCode.VK_A},
-                {"_a", VirtualKeyCode.VK_A},
-
-                {"s_", VirtualKeyCode.VK_S},
-                {"_s", VirtualKeyCode.VK_S},
-
-                {"r_", VirtualKeyCode.VK_D},
-                {"_r", VirtualKeyCode.VK_D}
+                {"c", VirtualKeyCode.UP},
+                {"d", VirtualKeyCode.RIGHT},
+                {"b", VirtualKeyCode.DOWN},
+                {"e", VirtualKeyCode.LEFT},
+                {"a", VirtualKeyCode.VK_A},
+                {"s", VirtualKeyCode.VK_S},
+                {"r", VirtualKeyCode.VK_D},
+                {"f", VirtualKeyCode.VK_F},
+                {"z", VirtualKeyCode.VK_Z},
+                {"x", VirtualKeyCode.VK_X},
+                {"u", VirtualKeyCode.VK_C},
+                {"v", VirtualKeyCode.VK_V},
+                {"1", VirtualKeyCode.RETURN},
+                {"2", VirtualKeyCode.SPACE},
+                {"3", VirtualKeyCode.ESCAPE}
             };
 
             _serialPort = new SerialPort("COM4", 9600, Parity.None, 8, StopBits.One)
