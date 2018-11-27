@@ -2,6 +2,7 @@
 using IniParser.Model;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using WindowsInput.Native;
 
 namespace MapeadorDaPortaSerial.Console
@@ -23,28 +24,14 @@ namespace MapeadorDaPortaSerial.Console
 
         private static Dictionary<string, VirtualKeyCode> CriarMapaDeComandos()
         {
-            var mapaDeComandos = new Dictionary<string, VirtualKeyCode>
-            {
-                {"c", ObterTecla("c")},
-                {"d", ObterTecla("d")},
-                {"b", ObterTecla("b")},
-                {"e", ObterTecla("e")},
-                {"9", ObterTecla("9")},
-                {"8", ObterTecla("8")},
-                {"7", ObterTecla("7")},
-                {"6", ObterTecla("6")},
-                {"5", ObterTecla("5")},
-                {"4", ObterTecla("4")},
-                {"3", ObterTecla("3")},
-                {"2", ObterTecla("2")}
-            };
-
-            return mapaDeComandos;
+            return _configuracoes
+                .Sections["Comandos"]
+                .ToDictionary(comando => comando.KeyName, comando => ConverterComandoParaTeclaDoTeclado(comando.Value));
         }
 
-        private static VirtualKeyCode ObterTecla(string comando)
+        private static VirtualKeyCode ConverterComandoParaTeclaDoTeclado(string tecla)
         {
-            return (VirtualKeyCode) Convert.ToInt32(_configuracoes["Comandos"][comando], 16);
+            return (VirtualKeyCode)Convert.ToInt32(tecla, 16);
         }
     }
 }
